@@ -536,6 +536,7 @@ function neatocal_hallon_almanackan() {
         let yyyy_mm_dd = fmt_date(cur_year, cur_mo+1, idx+1);
         if (yyyy_mm_dd in NEATOCAL_PARAM.data) {
           let txt = H.div();
+          txt.classList.add("txt");
           txt.innerHTML = NEATOCAL_PARAM.data[yyyy_mm_dd];
           txt.style.textAlign = "center";
           txt.style.fontWeight = "300";
@@ -641,6 +642,7 @@ function neatocal_default() {
         let yyyy_mm_dd = fmt_date(cur_year, cur_mo+1, idx+1);
         if (yyyy_mm_dd in NEATOCAL_PARAM.data) {
           let txt = H.div();
+          txt.classList.add("txt");
           txt.innerHTML = NEATOCAL_PARAM.data[yyyy_mm_dd];
           txt.style.textAlign = "center";
           txt.style.fontWeight = "300";
@@ -813,6 +815,7 @@ function neatocal_aligned_weekdays() {
         let yyyy_mm_dd = fmt_date(cur_year, cur_mo+1, day_idx+1);
         if (yyyy_mm_dd in NEATOCAL_PARAM.data) {
           let txt = H.div();
+          txt.classList.add("txt");
           txt.innerHTML = NEATOCAL_PARAM.data[yyyy_mm_dd];
           txt.style.textAlign = "center";
           txt.style.fontWeight = "300";
