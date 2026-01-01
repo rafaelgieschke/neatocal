@@ -995,7 +995,7 @@ function neatocal_parse_data(raw) {
 }
 
 function neatocal_init() {
-  let sp = new URLSearchParams(window.location.search);
+  let sp = new URLSearchParams(`?${window.location.hash.slice(1)}&${window.location.search.slice(1)}`);
 
   // peel off parameters from URL
   //
