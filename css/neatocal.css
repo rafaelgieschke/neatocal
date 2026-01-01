@@ -88,6 +88,10 @@ td:empty {
   font-weight: 400;
 }
 
+.txt {
+  float: right;
+}
+
 p {
   margin: 0 0 .5em 0;
   text-align: center;
