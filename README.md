@@ -3,11 +3,12 @@ NeatoCal
 
 A neato calendar with the full year on a single page.
 
-Based on the very awesome [Neatnik's Calendar](https://neatnik.net/dispenser/?project=calendar) project.
-
-This is a JavaScript port with added parameters (see below) and designed to be "dependency free" with all files local.
-
 Here's a [live demo](https://abetusk.github.io/neatocal).
+
+This is a JavaScript port of the very awesome [Neatnik's Calendar](https://www.neatnik.net/calendar/) project, with added parameters (see below) and designed to be "dependency free" with all files local.
+
+Printing probelms? See [printing issues](Printing-Issues.md).
+
 
 Screenshots
 ---
@@ -42,6 +43,7 @@ Parameters
 | `moon_phase_position` | Position of moon phase: `below` (default) or `inline`. | [...?show_moon_phase=true&moon_phase_position=inline](https://abetusk.github.io/neatocal?show_moon_phase=true&moon_phase_position=inline) |
 | `moon_phase_display` | When to show moon phases: `changes` (default, only on phase transitions) or `all` (every day). | [...?show_moon_phase=true&moon_phase_display=all](https://abetusk.github.io/neatocal?show_moon_phase=true&moon_phase_display=all) |
 | `show_week_numbers` | Displays the week number. (default `false`) | [...?show_week_numbers=true](https://abetusk.github.io/neatocal?show_week_numbers=true) |
+| `font_family` | Changes the font. (default `Oswald`) | [...?font_family=sans-serif](https://abetusk.github.io/neatocal?font_family=sans-serif) |
 | `data` | Location of JSON data file. | [...?data=example/data.json](https://abetusk.github.io/neatocal?data=example/data.json) |
 | `ics` | Show the ICS drag-and-drop prompt overlay on load. | [...?ics](https://abetusk.github.io/neatocal?ics) |
 | `help` | Show help screen  | [...?help](https://abetusk.github.io/neatocal?help) |
@@ -95,12 +97,15 @@ Data File
 ---
 
 There is a data file option that can be used to provide parameters or text in the day cells.
+The `data` value can be an absolute URL like `?data=https://example.com/data.json`.
+The only caveats are browser rules: the remote host must allow CORS (e.g. `Access-Control-Allow-Origin`),
+and mixed-content rules apply (HTTPS page can’t load HTTP JSON).
 
 The format is:
 
 ```
 {
-  "param" {
+  "param": {
     ...
     "color_cell" : [
       { "date":"YYYY-MM-DD", "color":"#rgb" },
@@ -149,6 +154,13 @@ ICS Import (Drag-and-drop)
 You can drop one or more `.ics` calendar files onto the page to import events on the fly.
 Imported events are displayed in each day cell, and multi-day events render as a new entry each day
 
+![ICS drag-n-drop import video demo](img/neatocal_ics_dnd.gif)
+
+Using the `ics` URL parameter will make the drag-and-drop interface appear on initial load and disappear after
+an ICS file is loaded.
+
+An example ICS file is located in `example/example.ics`.
+
 Notes:
 - Recurrence rules (`RRULE`) are currently ignored.
 - All-day and timed events are supported; all-day events use the end date as exclusive.
@@ -157,7 +169,7 @@ Notes:
 Misc
 ---
 
-Neatnik's original repo has [since moved](https://neatnik.net/dispenser/?project=calendar) but the legacy GitHub repo can be found [here](https://neatnik.net/dispenser/?project=calendar).
+Neatnik's original repo can be found at [source.tube/neatnik/calendar](https://source.tube/neatnik/calendar).
 
 License
 ---
